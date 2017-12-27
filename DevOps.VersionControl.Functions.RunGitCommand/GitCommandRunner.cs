@@ -1,5 +1,4 @@
-﻿using static Common.Functions.JoinCommandLineArguments.CommandLineArgumentsJoiner;
-using static Common.Functions.RunCommandLine.CommandLineRunner;
+﻿using static Common.Functions.RunCommandLineTool.CommandLineToolRunner;
 
 namespace DevOps.VersionControl.Functions.RunGitCommand
 {
@@ -8,8 +7,9 @@ namespace DevOps.VersionControl.Functions.RunGitCommand
         private const string git = nameof(git);
 
         public static void Git(string directory, string command, params string[] arguments)
-            => Run(directory,
-                command: git,
-                arguments: Join(command, arguments));
+            => Prompt(directory,
+                tool: git,
+                command,
+                arguments);
     }
 }
